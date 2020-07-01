@@ -22,37 +22,31 @@
       </button>
     </div>
     <template v-if="areFiltersExpanded && options">
-      <div
-        v-for="(item, index) in options"
-        :key="index"
-        class="margin-top-small"
-      >
-        <label class="checkbox" :for="item.code">
-          <input
-            type="checkbox"
-            class="filter-checkbox margin-right-small"
-            :id="item.code"
-            :key="index"
-            :checked="item.checked"
-            :disabled="disabled"
-            @change="onValueChange"
-          />
-          <license-icons v-if="filterType == 'licenses'" :license="item.code" />
-          {{ item.name }}
-        </label>
-        <img
-          v-if="filterType == 'licenses'"
-          src="@/assets/help_icon.svg"
-          alt="help"
-          class="license-help is-pulled-right padding-top-smallest padding-right-smaller"
-          @click.stop="toggleLicenseExplanationVisibility(item.code)"
-        />
+    <div v-for="(item, index) in options" :key="index" class="margin-top-small">
+      <label class="checkbox" :for="item.code">
+        <input type="checkbox"
+             class="filter-checkbox margin-right-small"
+             :id="item.code"
+             :key="index"
+             :checked="item.checked"
+             :disabled="disabled"
+             @change="onValueChange" />
+        <license-icons v-if="filterType == 'licenses'" :license="item.code" />
+        {{ $t(item.name) }}
+      </label>
+      <img
+        v-if="filterType == 'licenses'"
+        src="@/assets/help_icon.svg"
+        alt="help"
+        class="license-help is-pulled-right padding-top-smallest padding-right-smaller"
+        @click.stop="toggleLicenseExplanationVisibility(item.code)"
+      />
 
-        <license-explanation-tooltip
-          v-if="shouldRenderLicenseExplanationTooltip(item.code)"
-          :license="licenseExplanationCode"
-        />
-      </div>
+      <license-explanation-tooltip
+        v-if="shouldRenderLicenseExplanationTooltip(item.code)"
+        :license="licenseExplanationCode"
+      />
+    </div>
     </template>
   </div>
 </template>
