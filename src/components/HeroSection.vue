@@ -68,6 +68,7 @@
     <img
       class="logo-cloud"
       src="../assets/logo-cloud.png" alt="Logos from sources of Creative Commons licensed images">
+    </div>
   </div>
 </template>
 
@@ -113,12 +114,15 @@ $hero-height: 80vh;
 
   .hero_search-form {
     position: relative;
-    max-width: 750px;
     width: 100%;
     padding: 0 0.5em 0 0.5em;
   }
 
   .centered-search-box {
+    justify-content: center;
+  }
+
+  .field {
     justify-content: center;
   }
 
@@ -139,16 +143,9 @@ $hero-height: 80vh;
     right: 4rem;
   }
 
-  .locale-block {
-    position: absolute;
-    top: 2.5rem;
-    left: 0;
-    right: 0;
-  }
-
   @include tablet {
     .locale-block {
-      top: 2.5rem;
+      top: 0rem;
       left: auto;
       right: 4rem;
     }
