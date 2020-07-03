@@ -1,6 +1,6 @@
 <template>
   <div class="copy-license margin-vertical-normal">
-    <h5 class="b-header margin-bottom-small">Credit the Creator</h5>
+    <h5 class="b-header margin-bottom-small">{{ $t('photo-details.reuse.copy-license.title') }}</h5>
     <section class="tabs">
         <ul>
           <li :class="tabClass(0, 'tab')">
@@ -8,7 +8,7 @@
                href="#panel0"
                :aria-selected="activeTab == 0"
                @click.prevent="setActiveTab(0)">
-              Rich Text
+              {{ $t('photo-details.reuse.copy-license.rich') }}
             </a>
           </li>
           <li :class="tabClass(1, 'tab')">
@@ -16,7 +16,7 @@
                href="#panel1"
                :aria-selected="activeTab == 1"
                @click.prevent="setActiveTab(1)">
-              HTML
+              {{ $t('photo-details.reuse.copy-license.html') }}
             </a>
           </li>
           <li :class="tabClass(2, 'tab')">
@@ -24,7 +24,7 @@
                href="#panel2"
                :aria-selected="activeTab == 2"
                @click.prevent="setActiveTab(2)">
-              Plain text
+              {{ $t('photo-details.reuse.copy-license.plain') }}
             </a>
           </li>
         </ul>
