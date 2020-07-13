@@ -1,7 +1,7 @@
 <template>
 <div class="about-page">
   <header-section showNavSearch="true"></header-section>
-  <div class="margin-normal">
+  <main class="margin-normal">
     <h2>{{$t('about.title')}}</h2>
       <i18n path="about.description.content" tag="p">
           <template v-slot:link>
@@ -66,7 +66,7 @@
           </tr>
         </tbody>
       </table>
-  </div>
+  </main>
   <footer-section></footer-section>
 </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
 <div class="page">
   <header-section showNavSearch="true"></header-section>
-  <div class="margin-larger">
+  <main class="margin-larger">
     <h2 class="margin-vertical-normal">{{$t('search-guide.title')}}</h2>
     <p>
       {{$t('search-guide.intro')}}
@@ -151,7 +151,7 @@
         <br />
       </template>
     </i18n>
-  </div>
+  </main>
   <footer-section></footer-section>
 </div>
 </template>

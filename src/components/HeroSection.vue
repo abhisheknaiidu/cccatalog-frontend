@@ -109,8 +109,7 @@ $hero-height: 85vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 300px;
-  height: $hero-height;
+  min-height: $hero-height;
 
   .hero_search-form {
     position: relative;

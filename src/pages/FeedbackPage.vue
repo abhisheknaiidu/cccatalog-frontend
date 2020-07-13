@@ -1,7 +1,7 @@
 <template>
   <div class="feedback-page">
     <header-section showNavSearch="true"></header-section>
-    <div class="margin-larger">
+    <main class="margin-larger">
       <h1 id="feedback">{{$t('feedback.title')}}</h1>
       <i18n path="feedback.description" tag="p">
           <template v-slot:channel>
@@ -51,7 +51,7 @@
           </div>
         </section>
       </div>
-    </div>
+    </main>
     <footer-section></footer-section>
   </div>
 </template>
@@ -95,4 +95,3 @@ export default {
   },
 };
 </script>
-

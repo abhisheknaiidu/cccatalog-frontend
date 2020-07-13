@@ -1,9 +1,9 @@
 <template>
 <div class="grid-container full">
   <header-section></header-section>
-  <div class="not-found">
+  <main class="not-found">
     {{$t('not-found')}}
-  </div>
+  </main>
   <footer-section></footer-section>
 </div>
 </template>

@@ -1,17 +1,19 @@
 import Vue from 'vue';
+import VueMeta from 'vue-meta';
 import VueRouter from 'vue-router';
 import AboutPage from '@/pages/AboutPage';
 import HomePage from '@/pages/HomePage';
-import BrowsePage from '@/pages/server/BrowsePage';
-import PhotoDetailPage from '@/pages/server/PhotoDetailPage';
+import BrowsePage from '@/pages/BrowsePage';
+import PhotoDetailPage from '@/pages/PhotoDetailPage';
 import FeedbackPage from '@/pages/FeedbackPage';
 import CollectionsPage from '@/pages/CollectionsPage';
-import CollectionBrowsePage from '@/pages/server/CollectionBrowsePage';
+import CollectionBrowsePage from '@/pages/CollectionBrowsePage';
 import SearchHelpPage from '@/pages/SearchHelpPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import redirectOnEmptySearch from './redirectOnEmptySearch';
 
 Vue.use(VueRouter);
+Vue.use(VueMeta);
 
 const router = new VueRouter({
   mode: 'history',
@@ -69,9 +71,27 @@ const router = new VueRouter({
       component: NotFoundPage,
     },
   ],
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.name === 'browse-page' && to.params.location) {
+      // the setTimeout is for the time it takes it get the images
+      // Else the page scrolls up after the images are fetched
+      // Disabling linting for the reject argument that isn't used
+      // eslint-disable-next-line
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ x: 0, y: to.params.location });
+        }, 600);
+      });
+    }
     return { x: 0, y: 0 };
   },
+});
+
+router.afterEach((to) => {
+  if (typeof ga !== 'undefined') {
+    ga('set', 'page', to.fullPath);
+    ga('send', 'pageview');
+  }
 });
 
 redirectOnEmptySearch(router);
