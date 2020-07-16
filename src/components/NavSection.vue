@@ -31,18 +31,31 @@
             v-model.lazy="form.searchTerm"
           />
           <div class="is-sr-only">
-            <button tabindex="-1" type="submit" class="button secondary" value="Search"></button>
+            <button
+              tabindex="-1"
+              type="submit"
+              class="button secondary"
+              value="Search"
+            ></button>
           </div>
         </form>
       </div>
       <div class="navbar-end">
-        <a class="navbar-item" href="/about">{{$t('header.about')}}</a>
-        <a class="navbar-item" href="/collections">{{$t('header.collections')}}</a>
-        <a class="navbar-item" href="/search-help">{{$t('header.search-guide')}}</a>
-        <a class="navbar-item" href="/feedback">{{$t('header.feedback')}}</a>
-        <a class="navbar-item" href="https://opensource.creativecommons.org/ccsearch-browser-extension/" target="_blank">
-        {{$t('header.extension')}}
-        <i class="icon external-link" />
+        <a class="navbar-item" href="/about">{{ $t('header.about') }}</a>
+        <a class="navbar-item" href="/collections">{{
+          $t('header.collections')
+        }}</a>
+        <a class="navbar-item" href="/search-help">{{
+          $t('header.search-guide')
+        }}</a>
+        <a class="navbar-item" href="/feedback">{{ $t('header.feedback') }}</a>
+        <a
+          class="navbar-item"
+          href="https://opensource.creativecommons.org/ccsearch-browser-extension/"
+          target="_blank"
+        >
+          {{ $t('header.extension') }}
+          <i class="icon external-link" />
         </a>
       </div>
     </div>
@@ -61,7 +74,7 @@ export default {
   name: 'nav-section',
   computed: {
     navSearchPlaceholder() {
-      return this.$t('header.placeholder');
+      return this.$t('header.placeholder')
     },
   },
   data: () => ({ form: { searchTerm: '' }, isBurgerMenuActive: false }),

@@ -1,159 +1,208 @@
 <template>
-<div class="page">
-  <header-section showNavSearch="true"></header-section>
-  <main class="margin-larger">
-    <h2 class="margin-vertical-normal">{{$t('search-guide.title')}}</h2>
-    <p>
-      {{$t('search-guide.intro')}}
-    </p>
+  <div class="page">
+    <header-section showNavSearch="true"></header-section>
+    <main class="margin-larger">
+      <h2 class="margin-vertical-normal">{{ $t('search-guide.title') }}</h2>
+      <p>
+        {{ $t('search-guide.intro') }}
+      </p>
 
-    <h3 class="margin-vertical-normal">{{$t('search-guide.exact.title')}}</h3>
-    <i18n path="search-guide.exact.content" tag="p">
-          <template v-slot:link>
-            <a href='https://search.creativecommons.org/search?q="Claude%20Monet"'>
-              <em>"Claude Monet"</em>
-            </a>
+      <h3 class="margin-vertical-normal">
+        {{ $t('search-guide.exact.title') }}
+      </h3>
+      <i18n path="search-guide.exact.content" tag="p">
+        <template v-slot:link>
+          <a
+            href='https://search.creativecommons.org/search?q="Claude%20Monet"'
+          >
+            <em>"Claude Monet"</em>
+          </a>
+        </template>
+      </i18n>
+
+      <h3 class="margin-vertical-normal">
+        {{ $t('search-guide.combine.title') }}
+      </h3>
+
+      <p class="margin-vertical-normal">
+        {{ $t('search-guide.combine.description') }}
+      </p>
+
+      <ul>
+        <i18n path="search-guide.combine.and" tag="li" class="listitem">
+          <template v-slot:symbol>
+            <code class="literal">+</code>
           </template>
-      </i18n>
+        </i18n>
+        <i18n path="search-guide.combine.or" tag="li" class="listitem">
+          <template v-slot:symbol>
+            <code class="literal">|</code>
+          </template>
+        </i18n>
+        <i18n path="search-guide.combine.negate" tag="li" class="listitem">
+          <template v-slot:symbol>
+            <code class="literal">-</code>
+          </template>
+        </i18n>
+        <i18n path="search-guide.combine.prefix" tag="li" class="listitem">
+          <template v-slot:symbol>
+            <code class="literal">*</code>
+          </template>
+        </i18n>
+        <i18n path="search-guide.combine.precedence" tag="li" class="listitem">
+          <template v-slot:open>
+            <code class="literal">(</code>
+          </template>
+          <template v-slot:close>
+            <code class="literal">)</code>
+          </template>
+        </i18n>
+        <i18n path="search-guide.combine.fuzziness" tag="li" class="listitem">
+          <template v-slot:symbol>
+            <code class="literal">~N</code>
+          </template>
+        </i18n>
+      </ul>
 
-    <h3 class="margin-vertical-normal">{{$t('search-guide.combine.title')}}</h3>
-
-    <p class="margin-vertical-normal">
-      {{$t('search-guide.combine.description')}}
-    </p>
-
-    <ul>
-      <i18n path="search-guide.combine.and" tag="li" class="listitem">
-        <template v-slot:symbol>
-          <code class="literal">+</code>
+      <i18n
+        path="search-guide.example.and"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:link>
+          <a href="https://search.creativecommons.org/search?q=dog%2Bcat">
+            <em>dog+cat</em>
+          </a>
+        </template>
+        <template v-slot:br>
+          <br />
         </template>
       </i18n>
-      <i18n path="search-guide.combine.or" tag="li" class="listitem">
-        <template v-slot:symbol>
-          <code class="literal">|</code>
+
+      <i18n
+        path="search-guide.example.or"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:link>
+          <a href="https://search.creativecommons.org/search?q=dog%7Ccat">
+            <em>dog|cat</em>
+          </a>
+        </template>
+        <template v-slot:br>
+          <br />
         </template>
       </i18n>
-      <i18n path="search-guide.combine.negate" tag="li" class="listitem">
-        <template v-slot:symbol>
-          <code class="literal">-</code>
+
+      <i18n
+        path="search-guide.example.negate.description"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:highlight>
+          <em>- operator (signifies NOT)</em>
         </template>
       </i18n>
-      <i18n path="search-guide.combine.prefix" tag="li" class="listitem">
-        <template v-slot:symbol>
-          <code class="literal">*</code>
+
+      <i18n
+        path="search-guide.example.negate.content"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:link>
+          <a href="https://search.creativecommons.org/search?q=dog%20-pug">
+            <em>dog -pug</em>
+          </a>
+        </template>
+        <template v-slot:br>
+          <br />
         </template>
       </i18n>
-      <i18n path="search-guide.combine.precedence" tag="li" class="listitem">
-        <template v-slot:open>
-          <code class="literal">(</code>
-        </template>
-        <template v-slot:close>
-          <code class="literal">)</code>
-        </template>
-      </i18n>
-      <i18n path="search-guide.combine.fuzziness" tag="li" class="listitem">
-        <template v-slot:symbol>
-          <code class="literal">~N</code>
+
+      <i18n
+        path="search-guide.example.prefix.description"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:highlight>
+          <em>* operator (wildcard)</em>
         </template>
       </i18n>
-    </ul>
 
+      <i18n
+        path="search-guide.example.negate.content"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:link>
+          <a href="https://search.creativecommons.org/search?q=net%2a">
+            <em>net*</em>
+          </a>
+        </template>
+        <template v-slot:br>
+          <br />
+        </template>
+      </i18n>
 
-    <i18n path="search-guide.example.and" tag="p" class="margin-vertical-normal">
-      <template v-slot:link>
-        <a href='https://search.creativecommons.org/search?q=dog%2Bcat'>
-          <em>dog+cat</em>
-        </a>
-      </template>
-      <template v-slot:br>
-        <br />
-      </template>
-    </i18n>
+      <i18n
+        path="search-guide.example.precedence.description"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:highlight>
+          <em>( and )</em>
+        </template>
+      </i18n>
 
-    <i18n path="search-guide.example.or" tag="p" class="margin-vertical-normal">
-      <template v-slot:link>
-        <a href='https://search.creativecommons.org/search?q=dog%7Ccat'>
-          <em>dog|cat</em>
-        </a>
-      </template>
-      <template v-slot:br>
-        <br />
-      </template>
-    </i18n>
+      <i18n
+        path="search-guide.example.negate.content"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:link>
+          <a
+            href="https://search.creativecommons.org/search?q=dogs%20%2B%20%28corgis%20%7C%20labrador%29"
+          >
+            <em>dogs + (corgis | labrador)</em>
+          </a>
+        </template>
+        <template v-slot:br>
+          <br />
+        </template>
+      </i18n>
 
-    <i18n path="search-guide.example.negate.description" tag="p" class="margin-vertical-normal">
-      <template v-slot:highlight>
-        <em>- operator (signifies NOT)</em>
-      </template>
-    </i18n>
+      <i18n
+        path="search-guide.example.fuzziness.description"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:highlight>
+          <em>~N</em>
+        </template>
+        <template v-slot:link>
+          <a href="http://en.wikipedia.org/wiki/Levenshtein_distance"
+            >Levenshtein Edit Distance</a
+          >
+        </template>
+      </i18n>
 
-    <i18n path="search-guide.example.negate.content" tag="p" class="margin-vertical-normal">
-      <template v-slot:link>
-        <a href='https://search.creativecommons.org/search?q=dog%20-pug'>
-          <em>dog -pug</em>
-        </a>
-      </template>
-      <template v-slot:br>
-        <br />
-      </template>
-    </i18n>
-
-    <i18n path="search-guide.example.prefix.description" tag="p" class="margin-vertical-normal">
-      <template v-slot:highlight>
-        <em>* operator (wildcard)</em>
-      </template>
-    </i18n>
-
-    <i18n path="search-guide.example.negate.content" tag="p" class="margin-vertical-normal">
-      <template v-slot:link>
-        <a href='https://search.creativecommons.org/search?q=net%2a'>
-          <em>net*</em>
-        </a>
-      </template>
-      <template v-slot:br>
-        <br />
-      </template>
-    </i18n>
-
-    <i18n path="search-guide.example.precedence.description" tag="p" class="margin-vertical-normal">
-      <template v-slot:highlight>
-        <em>( and )</em>
-      </template>
-    </i18n>
-
-    <i18n path="search-guide.example.negate.content" tag="p" class="margin-vertical-normal">
-      <template v-slot:link>
-        <a href='https://search.creativecommons.org/search?q=dogs%20%2B%20%28corgis%20%7C%20labrador%29'>
-          <em>dogs + (corgis | labrador)</em>
-        </a>
-      </template>
-      <template v-slot:br>
-        <br />
-      </template>
-    </i18n>
-
-    <i18n path="search-guide.example.fuzziness.description" tag="p" class="margin-vertical-normal">
-      <template v-slot:highlight>
-        <em>~N</em>
-      </template>
-      <template v-slot:link>
-        <a href="http://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein Edit Distance</a>
-      </template>
-    </i18n>
-
-    <i18n path="search-guide.example.fuzziness.content" tag="p" class="margin-vertical-normal">
-      <template v-slot:link>
-        <a href='https://search.creativecommons.org/search?q=theatre~1'>
-          <em>theatre~1</em>
-        </a>
-      </template>
-      <template v-slot:br>
-        <br />
-      </template>
-    </i18n>
-  </main>
-  <footer-section></footer-section>
-</div>
+      <i18n
+        path="search-guide.example.fuzziness.content"
+        tag="p"
+        class="margin-vertical-normal"
+      >
+        <template v-slot:link>
+          <a href="https://search.creativecommons.org/search?q=theatre~1">
+            <em>theatre~1</em>
+          </a>
+        </template>
+        <template v-slot:br>
+          <br />
+        </template>
+      </i18n>
+    </main>
+    <footer-section></footer-section>
+  </div>
 </template>
 
 <script>

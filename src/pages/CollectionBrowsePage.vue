@@ -13,13 +13,18 @@
         />
       </div>
       <div class="column search-grid-ctr">
-        <search-grid-form @onSearchFormSubmit="onSearchFormSubmit"
-                          :searchBoxPlaceholder=
-                          "$t('browse-page.search-form.collection-placeholder')" />
-        <search-grid v-if="query.provider"
-                     :query="query"
-                     :searchTerm="providerName"
-                     @onLoadMoreImages="onLoadMoreImages"></search-grid>
+        <search-grid-form
+          @onSearchFormSubmit="onSearchFormSubmit"
+          :searchBoxPlaceholder="
+            $t('browse-page.search-form.collection-placeholder')
+          "
+        />
+        <search-grid
+          v-if="query.provider"
+          :query="query"
+          :searchTerm="providerName"
+          @onLoadMoreImages="onLoadMoreImages"
+        ></search-grid>
       </div>
     </div>
     <footer-section></footer-section>

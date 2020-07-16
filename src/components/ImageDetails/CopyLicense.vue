@@ -1,52 +1,62 @@
 <template>
   <div class="copy-license margin-vertical-normal">
-    <h5 class="b-header margin-bottom-small">{{ $t('photo-details.reuse.copy-license.title') }}</h5>
+    <h5 class="b-header margin-bottom-small">
+      {{ $t('photo-details.reuse.copy-license.title') }}
+    </h5>
     <section class="tabs">
-        <ul>
-          <li :class="tabClass(0, 'tab')">
-            <a class="is-size-6"
-               href="#panel0"
-               :aria-selected="activeTab == 0"
-               @click.prevent="setActiveTab(0)">
-              {{ $t('photo-details.reuse.copy-license.rich') }}
-            </a>
-          </li>
-          <li :class="tabClass(1, 'tab')">
-            <a class="is-size-6"
-               href="#panel1"
-               :aria-selected="activeTab == 1"
-               @click.prevent="setActiveTab(1)">
-              {{ $t('photo-details.reuse.copy-license.html') }}
-            </a>
-          </li>
-          <li :class="tabClass(2, 'tab')">
-            <a class="is-size-6"
-               href="#panel2"
-               :aria-selected="activeTab == 2"
-               @click.prevent="setActiveTab(2)">
-              {{ $t('photo-details.reuse.copy-license.plain') }}
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section class="tabs-content has-background-white padding-normal">
-        <div :class="tabClass(0, 'tabs-panel')">
-          <span id="attribution" class="photo_usage-attribution is-block" ref="photoAttribution">
-            <a :href="image.foreign_landing_url"
-                target="_blank"
-                rel="noopener">{{ imageTitle }}</a>
-            <span v-if="image.creator">
-              by
-              <a v-if="image.creator_url"
-                  :href="image.creator_url"
-                  target="_blank"
-                  rel="noopener">{{ image.creator }}</a>
-              <span v-else>{{ image.creator }}</span>
-            </span>
-            is licensed under
-            <a class="photo_license" :href="licenseURL" target="_blank" rel="noopener">
-            {{ fullLicenseName.toUpperCase() }}
-            </a>
+      <ul>
+        <li :class="tabClass(0, 'tab')">
+          <a
+            class="is-size-6"
+            href="#panel0"
+            :aria-selected="activeTab == 0"
+            @click.prevent="setActiveTab(0)"
+          >
+            {{ $t('photo-details.reuse.copy-license.rich') }}
+          </a>
+        </li>
+        <li :class="tabClass(1, 'tab')">
+          <a
+            class="is-size-6"
+            href="#panel1"
+            :aria-selected="activeTab == 1"
+            @click.prevent="setActiveTab(1)"
+          >
+            {{ $t('photo-details.reuse.copy-license.html') }}
+          </a>
+        </li>
+        <li :class="tabClass(2, 'tab')">
+          <a
+            class="is-size-6"
+            href="#panel2"
+            :aria-selected="activeTab == 2"
+            @click.prevent="setActiveTab(2)"
+          >
+            {{ $t('photo-details.reuse.copy-license.plain') }}
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="tabs-content has-background-white padding-normal">
+      <div :class="tabClass(0, 'tabs-panel')">
+        <span
+          id="attribution"
+          class="photo_usage-attribution is-block"
+          ref="photoAttribution"
+        >
+          <a :href="image.foreign_landing_url" target="_blank" rel="noopener">{{
+            imageTitle
+          }}</a>
+          <span v-if="image.creator">
+            by
+            <a
+              v-if="image.creator_url"
+              :href="image.creator_url"
+              target="_blank"
+              rel="noopener"
+              >{{ image.creator }}</a
+            >
+            <span v-else>{{ image.creator }}</span>
           </span>
           is licensed under
           <a

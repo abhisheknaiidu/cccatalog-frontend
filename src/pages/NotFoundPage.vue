@@ -1,11 +1,11 @@
 <template>
-<div class="grid-container full">
-  <header-section></header-section>
-  <main class="not-found">
-    {{$t('not-found')}}
-  </main>
-  <footer-section></footer-section>
-</div>
+  <div class="grid-container full">
+    <header-section></header-section>
+    <main class="not-found">
+      {{ $t('not-found') }}
+    </main>
+    <footer-section></footer-section>
+  </div>
 </template>
 
 <script>
