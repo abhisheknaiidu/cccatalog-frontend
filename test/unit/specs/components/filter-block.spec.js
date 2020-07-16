@@ -10,7 +10,7 @@ describe('FilterBlock', () => {
     props = {
       filter: [{ code: 'foo', name: 'bar', checked: false }],
       filterType: 'bar',
-    };
+    }
     options = {
       propsData: props,
       mocks: {
@@ -20,26 +20,26 @@ describe('FilterBlock', () => {
   });
 
   it('should render correct contents', () => {
-    const wrapper = render(FilterBlock, options);
-    expect(wrapper.find('.filter-block').vm).toBeDefined();
-  });
+    const wrapper = render(FilterBlock, options)
+    expect(wrapper.find('.filter-block').vm).toBeDefined()
+  })
 
   it('should call filterChanged event', () => {
     const mockMethods = {
       onClick: jest.fn(),
-    };
-    options.methods = mockMethods;
-    const wrapper = render(FilterBlock, options);
-    const close = wrapper.find('.close');
-    expect(close).toBeDefined();
+    }
+    options.methods = mockMethods
+    const wrapper = render(FilterBlock, options)
+    const close = wrapper.find('.close')
+    expect(close).toBeDefined()
 
-    close.trigger('click');
-    expect(options.methods.onClick).toHaveBeenCalled();
-  });
+    close.trigger('click')
+    expect(options.methods.onClick).toHaveBeenCalled()
+  })
 
   it('should emit filterChanged event', () => {
-    const wrapper = render(FilterBlock, options);
-    wrapper.vm.onClick();
-    expect(wrapper.emitted().filterChanged).toBeTruthy();
-  });
-});
+    const wrapper = render(FilterBlock, options)
+    wrapper.vm.onClick()
+    expect(wrapper.emitted().filterChanged).toBeTruthy()
+  })
+})

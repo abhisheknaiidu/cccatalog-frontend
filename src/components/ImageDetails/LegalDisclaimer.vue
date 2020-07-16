@@ -9,16 +9,16 @@
 <script>
 export default {
   name: 'legal-disclaimer',
-};
+}
 </script>
 
 <style lang="scss" scoped>
-  li:before{
-    content: "\2022";
-    color: #CCC;
-    font-weight: bold;
-    display: inline-block;
-    margin-right: .5rem;
-    font-size: 1rem;
-  }
+li:before {
+  content: '\2022';
+  color: #ccc;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
 </style>

@@ -29,9 +29,53 @@
           <a aria-label="facebook" href="https://www.facebook.com/creativecommons" class="social has-text-white" target="_blank" rel="noopener">
              <i class="icon facebook margin-right-small is-size-4" />
           </a>
-          <a aria-label="linkedin" href="https://www.linkedin.com/company/creative-commons/" class="social has-text-white" target="_blank" rel="noopener">
-             <i class="icon linkedin margin-right-small is-size-4" />
+          <address class="margin-bottom-normal">
+            <span class="is-block">Creative Commons</span>
+            <span>PO Box 1866, Mountain View CA 94042</span>
+          </address>
+          <a href="mailto:info@creativecommons.org" class="mail is-block">
+            info@creativecommons.org
           </a>
+          <a href="tel://+1-415-429-6753" class="phone">+1-415-429-6753</a>
+
+          <div class="margin-vertical-large">
+            <a
+              aria-label="instagram"
+              href="https://www.instagram.com/creativecommons"
+              class="social has-text-white"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="icon instagram margin-right-small is-size-4" />
+            </a>
+            <a
+              aria-label="twitter"
+              href="https://www.twitter.com/creativecommons"
+              class="social has-text-white"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="icon twitter margin-right-small is-size-4" />
+            </a>
+            <a
+              aria-label="facebook"
+              href="https://www.facebook.com/creativecommons"
+              class="social has-text-white"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="icon facebook margin-right-small is-size-4" />
+            </a>
+            <a
+              aria-label="linkedin"
+              href="https://www.linkedin.com/company/creative-commons/"
+              class="social has-text-white"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="icon linkedin margin-right-small is-size-4" />
+            </a>
+          </div>
         </div>
       </div>
       <div class="column is-half">
@@ -84,20 +128,19 @@
         </aside>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </template>
 
 <script>
 export default {
   name: 'footer-section',
-};
+}
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.donate, .social {
+.donate,
+.social {
   &:hover {
     text-decoration: none;
   }

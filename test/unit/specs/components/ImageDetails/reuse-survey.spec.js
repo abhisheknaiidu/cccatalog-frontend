@@ -10,12 +10,12 @@ describe('ImageAttribution', () => {
   let dispatchMock = null;
   const $t = key => i18n.messages[key];
   beforeEach(() => {
-    dispatchMock = jest.fn();
+    dispatchMock = jest.fn()
     props = {
       image: {
         id: 0,
       },
-    };
+    }
     options = {
       propsData: props,
       mocks: {
@@ -24,15 +24,15 @@ describe('ImageAttribution', () => {
         },
         $t,
       },
-    };
-  });
+    }
+  })
 
   it('should dispatch REUSE_SURVEY on reuse link clicked', () => {
-    const wrapper = render(ReuseSurvey, options);
-    wrapper.find('a').trigger('click');
+    const wrapper = render(ReuseSurvey, options)
+    wrapper.find('a').trigger('click')
     expect(dispatchMock).toHaveBeenCalledWith(SEND_DETAIL_PAGE_EVENT, {
       eventType: DETAIL_PAGE_EVENTS.REUSE_SURVEY,
       resultUuid: props.image.id,
-    });
-  });
-});
+    })
+  })
+})

@@ -17,5 +17,5 @@
 export default {
   name: 'done-message',
   props: ['imageURL', 'providerName'],
-};
+}
 </script>

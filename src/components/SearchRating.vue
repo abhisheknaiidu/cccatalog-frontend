@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import { SEND_SEARCH_RATING_EVENT } from '@/store/usage-data-analytics-types';
+import { SEND_SEARCH_RATING_EVENT } from '@/store/usage-data-analytics-types'
 
 const Statuses = {
   NOT_SENT: 'NOT_SENT',
   SENT: 'SENT',
-};
+}
 
 export default {
   name: 'search-rating',
@@ -32,20 +32,22 @@ export default {
   data() {
     return {
       status: Statuses.NOT_SENT,
-    };
+    }
   },
   methods: {
     sendSearchRatingEvent(isRelevant) {
       this.$store.dispatch(SEND_SEARCH_RATING_EVENT, {
         query: this.$props.searchTerm,
         relevant: isRelevant,
-      });
+      })
 
-      this.status = Statuses.SENT;
-      setTimeout(() => { this.status = null; }, 1500);
+      this.status = Statuses.SENT
+      setTimeout(() => {
+        this.status = null
+      }, 1500)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

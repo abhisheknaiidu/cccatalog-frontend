@@ -24,11 +24,14 @@ export default {
   props: ['code', 'filterType', 'label'],
   methods: {
     onClick() {
-      this.$emit('filterChanged', { code: this.$props.code, filterType: this.$props.filterType });
+      this.$emit('filterChanged', {
+        code: this.$props.code,
+        filterType: this.$props.filterType,
+      })
     },
     onClickIsolatedFilter() {
-      this.$emit('filterChanged', { filterType: this.$props.filterType });
+      this.$emit('filterChanged', { filterType: this.$props.filterType })
     },
   },
-};
+}
 </script>

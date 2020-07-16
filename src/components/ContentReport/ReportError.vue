@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import { BACK_TO_REPORT_START } from '@/store/mutation-types';
+import { BACK_TO_REPORT_START } from '@/store/mutation-types'
 
 export default {
   name: 'report-error',
   methods: {
     onBackClick() {
-      this.$store.commit(BACK_TO_REPORT_START);
+      this.$store.commit(BACK_TO_REPORT_START)
     },
   },
-};
+}
 </script>

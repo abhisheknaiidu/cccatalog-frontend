@@ -74,33 +74,38 @@
       {{ $t('filter-list.show') }}
     </button>
   </div>
-</div>
 </template>
 
 <script>
-import FilterCheckList from './FilterChecklist';
+import FilterCheckList from './FilterChecklist'
 
 export default {
   name: 'filters-list',
-  props: ['filters', 'isFilterApplied', 'licenseTypesDisabled', 'licensesDisabled', 'renderProvidersFilter'],
+  props: [
+    'filters',
+    'isFilterApplied',
+    'licenseTypesDisabled',
+    'licensesDisabled',
+    'renderProvidersFilter',
+  ],
   components: {
     FilterCheckList,
   },
   methods: {
     onUpdateFilter({ code, filterType }) {
-      this.$emit('onUpdateFilter', { code, filterType });
+      this.$emit('onUpdateFilter', { code, filterType })
     },
     onUpdateSearchByCreator() {
-      this.$emit('onUpdateSearchByCreator');
+      this.$emit('onUpdateSearchByCreator')
     },
     onToggleSearchGridFilter() {
-      this.$emit('onToggleSearchGridFilter');
+      this.$emit('onToggleSearchGridFilter')
     },
     onClearFilters() {
-      this.$emit('onClearFilters');
+      this.$emit('onClearFilters')
     },
   },
-};
+}
 </script>
 
 <style>

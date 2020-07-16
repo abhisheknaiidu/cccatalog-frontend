@@ -23,7 +23,7 @@ describe('ImageAttribution', () => {
       ccLicenseURL: 'http://license.com',
       fullLicenseName: 'LICENSE',
       attributionHtml: '<div>attribution</div>',
-    };
+    }
     options = {
       propsData: props,
       mocks: {
@@ -33,13 +33,13 @@ describe('ImageAttribution', () => {
   });
 
   it('should contain the correct contents', () => {
-    const wrapper = render(ImageAttribution, options);
-    expect(wrapper.find('.sidebar_section')).toBeDefined();
-  });
+    const wrapper = render(ImageAttribution, options)
+    expect(wrapper.find('.sidebar_section')).toBeDefined()
+  })
 
   it('should return the correct license url', () => {
-    const wrapper = render(ImageAttribution, options);
-    const a = wrapper.find('.photo_license');
-    expect(a.attributes().href).toBe('http://license.com&atype=rich');
-  });
-});
+    const wrapper = render(ImageAttribution, options)
+    const a = wrapper.find('.photo_license')
+    expect(a.attributes().href).toBe('http://license.com&atype=rich')
+  })
+})

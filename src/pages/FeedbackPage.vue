@@ -57,8 +57,8 @@
 </template>
 
 <script>
-import HeaderSection from '@/components/HeaderSection';
-import FooterSection from '@/components/FooterSection';
+import HeaderSection from '@/components/HeaderSection'
+import FooterSection from '@/components/FooterSection'
 
 export default {
   name: 'feedback-page',
@@ -69,29 +69,29 @@ export default {
   data() {
     return {
       activeTab: 0,
-    };
+    }
   },
   methods: {
     tabClass(tabIdx, tabClass) {
       return {
         [tabClass]: true,
         'is-active': tabIdx === this.activeTab,
-      };
+      }
     },
     setActiveTab(tabIdx) {
-      this.activeTab = tabIdx;
+      this.activeTab = tabIdx
     },
   },
   computed: {
     isReportingBug() {
-      return this.$store.state.isReportingBug;
+      return this.$store.state.isReportingBug
     },
     bugReported() {
-      return this.$store.state.bugReported;
+      return this.$store.state.bugReported
     },
     bugReportFailed() {
-      return this.$store.state.bugReportFailed;
+      return this.$store.state.bugReportFailed
     },
   },
-};
+}
 </script>

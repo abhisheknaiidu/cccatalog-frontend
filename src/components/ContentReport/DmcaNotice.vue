@@ -22,14 +22,13 @@
 </template>
 
 <script>
-
 export default {
   name: 'dmca-notice',
   props: ['dmcaFormUrl', 'imageURL', 'providerName'],
   methods: {
     onBackClick() {
-      this.$emit('onBackClick');
+      this.$emit('onBackClick')
     },
   },
-};
+}
 </script>

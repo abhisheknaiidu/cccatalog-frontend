@@ -32,22 +32,22 @@ export default {
   data() {
     return {
       otherReasonDescription: '',
-    };
+    }
   },
   computed: {
     descriptionHasMoreThan20Chars() {
-      return this.otherReasonDescription.length >= 20;
+      return this.otherReasonDescription.length >= 20
     },
   },
   methods: {
     onBackClick() {
-      this.$emit('onBackClick');
+      this.$emit('onBackClick')
     },
     sendContentReport() {
-      this.$emit('sendContentReport', this.otherReasonDescription);
+      this.$emit('sendContentReport', this.otherReasonDescription)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

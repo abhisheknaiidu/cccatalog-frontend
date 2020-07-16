@@ -22,17 +22,19 @@
       </i18n>
     </div>
     <div>
-      <copy-license :image="image"
-                    :fullLicenseName="fullLicenseName"
-                    :licenseURL="licenseURL"
-                    :attributionHtml="attributionHtml" />
+      <copy-license
+        :image="image"
+        :fullLicenseName="fullLicenseName"
+        :licenseURL="licenseURL"
+        :attributionHtml="attributionHtml"
+      />
     </div>
   </section>
 </template>
 
 <script>
-import LicenseExplanations from '@/components/LicenseExplanations';
-import CopyLicense from './CopyLicense';
+import LicenseExplanations from '@/components/LicenseExplanations'
+import CopyLicense from './CopyLicense'
 
 export default {
   name: 'image-attribution',
@@ -43,8 +45,8 @@ export default {
   },
   computed: {
     licenseURL() {
-      return `${this.ccLicenseURL}&atype=rich`;
+      return `${this.ccLicenseURL}&atype=rich`
     },
   },
-};
+}
 </script>

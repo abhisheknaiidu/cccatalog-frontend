@@ -54,27 +54,28 @@
           <th>{{$t('about.providers.work')}}</th>
         </thead>
         <tbody>
-          <tr v-for="(imageProvider, index) in imageProviders"
-              :key="index">
+          <tr v-for="(imageProvider, index) in imageProviders" :key="index">
             <td>{{ imageProvider.display_name }}</td>
             <td>
               <a :href="imageProvider.source_url">
                 {{ imageProvider.source_url }}
               </a>
             </td>
-            <td class="number-cell">{{ getProviderImageCount(imageProvider.image_count) }}</td>
+            <td class="number-cell">
+              {{ getProviderImageCount(imageProvider.image_count) }}
+            </td>
           </tr>
         </tbody>
       </table>
-  </main>
-  <footer-section></footer-section>
-</div>
+    </main>
+    <footer-section></footer-section>
+  </div>
 </template>
 
 <script>
-import HeaderSection from '@/components/HeaderSection';
-import FooterSection from '@/components/FooterSection';
-import ServerPrefetchProvidersMixin from '@/pages/mixins/ServerPrefetchProvidersMixin';
+import HeaderSection from '@/components/HeaderSection'
+import FooterSection from '@/components/FooterSection'
+import ServerPrefetchProvidersMixin from '@/pages/mixins/ServerPrefetchProvidersMixin'
 
 const AboutPage = {
   name: 'about-page',
@@ -85,20 +86,20 @@ const AboutPage = {
   },
   computed: {
     imageProviders() {
-      return this.$store.state.imageProviders;
+      return this.$store.state.imageProviders
     },
   },
   methods: {
     getProviderImageCount(imageCount) {
-      return (imageCount).toLocaleString('en');
+      return imageCount.toLocaleString('en')
     },
   },
-};
+}
 
-export default AboutPage;
+export default AboutPage
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  @import '../styles/text-only-page.scss';
+@import '../styles/text-only-page.scss';
 </style>

@@ -10,11 +10,11 @@ describe('CopyLicense', () => {
   const $t = key => i18n.messages[key];
   const eventData = {
     content: 'Foo',
-  };
-  let dispatchMock = null;
+  }
+  let dispatchMock = null
 
   beforeEach(() => {
-    dispatchMock = jest.fn();
+    dispatchMock = jest.fn()
     props = {
       image: {
         id: 0,
@@ -31,7 +31,7 @@ describe('CopyLicense', () => {
       ccLicenseURL: 'http://license.com',
       fullLicenseName: 'LICENSE',
       attributionHtml: '<div>attribution</div>',
-    };
+    }
     options = {
       propsData: props,
       mocks: {
@@ -40,43 +40,43 @@ describe('CopyLicense', () => {
         },
         $t,
       },
-    };
-  });
+    }
+  })
 
   it('should contain the correct contents', () => {
-    const wrapper = render(CopyLicense, options);
-    expect(wrapper.find('.copy-license')).toBeDefined();
-  });
+    const wrapper = render(CopyLicense, options)
+    expect(wrapper.find('.copy-license')).toBeDefined()
+  })
 
   it('should dispatch COPY_ATTRIBUTION', () => {
-    const wrapper = render(CopyLicense, options);
-    wrapper.vm.onCopyAttribution(eventData);
+    const wrapper = render(CopyLicense, options)
+    wrapper.vm.onCopyAttribution(eventData)
     expect(dispatchMock).toHaveBeenCalledWith(COPY_ATTRIBUTION, {
       content: eventData.content,
-    });
-  });
+    })
+  })
 
   it('should dispatch EMBED_ATTRIBUTION', () => {
-    const wrapper = render(CopyLicense, options);
-    wrapper.vm.onEmbedAttribution();
-    expect(dispatchMock).toHaveBeenCalledWith(EMBED_ATTRIBUTION);
-  });
+    const wrapper = render(CopyLicense, options)
+    wrapper.vm.onEmbedAttribution()
+    expect(dispatchMock).toHaveBeenCalledWith(EMBED_ATTRIBUTION)
+  })
 
   it('should dispatch SEND_DETAIL_PAGE_EVENT on copy attribution', () => {
-    const wrapper = render(CopyLicense, options);
-    wrapper.vm.onCopyAttribution(eventData);
+    const wrapper = render(CopyLicense, options)
+    wrapper.vm.onCopyAttribution(eventData)
     expect(dispatchMock).toHaveBeenCalledWith(SEND_DETAIL_PAGE_EVENT, {
       eventType: DETAIL_PAGE_EVENTS.ATTRIBUTION_CLICKED,
       resultUuid: props.image.id,
-    });
-  });
+    })
+  })
 
   it('should dispatch SEND_DETAIL_PAGE_EVENT on embed attribution', () => {
-    const wrapper = render(CopyLicense, options);
-    wrapper.vm.onEmbedAttribution();
+    const wrapper = render(CopyLicense, options)
+    wrapper.vm.onEmbedAttribution()
     expect(dispatchMock).toHaveBeenCalledWith(SEND_DETAIL_PAGE_EVENT, {
       eventType: DETAIL_PAGE_EVENTS.ATTRIBUTION_CLICKED,
       resultUuid: props.image.id,
-    });
-  });
-});
+    })
+  })
+})

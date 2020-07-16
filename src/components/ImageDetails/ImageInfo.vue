@@ -5,7 +5,7 @@
         {{ $t('photo-details.information.dimensions') }}
       </h5>
       <span class="body-big">
-        {{ imageWidth }} &times;  {{ imageHeight }} pixels
+        {{ imageWidth }} &times; {{ imageHeight }} pixels
       </span>
     </div>
     <div class="margin-bottom-big">
@@ -13,15 +13,19 @@
         {{ $t('photo-details.information.source') }}
       </h5>
       <div class="body-big">
-        <a :href="image.foreign_landing_url"
-            target="blank"
-            rel="noopener noreferrer">
-          <img class="provider-logo"
-              :alt="image.source"
-              :title="image.source"
-              :src="getProviderLogo(image.source)" />
+        <a
+          :href="image.foreign_landing_url"
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="provider-logo"
+            :alt="image.source"
+            :title="image.source"
+            :src="getProviderLogo(image.source)"
+          />
         </a>
-    </div>
+      </div>
     </div>
     <div class="margin-bottom-big">
       <h5 class="is-block margin-bottom-small b-header">
@@ -29,7 +33,7 @@
       </h5>
       <license-icons :license="image.license"></license-icons>
       <a class="photo_license body-big" :href="ccLicenseURL">
-      {{ fullLicenseName }}
+        {{ fullLicenseName }}
       </a>
     </div>
     <div class="margin-bottom-big">
@@ -42,29 +46,38 @@
 </template>
 
 <script>
-import PhotoTags from '@/components/PhotoTags';
-import getProviderName from '@/utils/getProviderName';
-import LicenseIcons from '@/components/LicenseIcons';
-import getProviderLogo from '@/utils/getProviderLogo';
+import PhotoTags from '@/components/PhotoTags'
+import getProviderName from '@/utils/getProviderName'
+import LicenseIcons from '@/components/LicenseIcons'
+import getProviderLogo from '@/utils/getProviderLogo'
 
 export default {
   name: 'image-info',
-  props: ['image', 'ccLicenseURL', 'fullLicenseName', 'imageWidth', 'imageHeight'],
+  props: [
+    'image',
+    'ccLicenseURL',
+    'fullLicenseName',
+    'imageWidth',
+    'imageHeight',
+  ],
   components: {
     LicenseIcons,
     PhotoTags,
   },
   computed: {
     providerName() {
-      return getProviderName(this.$store.state.imageProviders, this.$props.image.source);
+      return getProviderName(
+        this.$store.state.imageProviders,
+        this.$props.image.source
+      )
     },
   },
   methods: {
     getProviderLogo(providerName) {
-      return getProviderLogo(providerName);
+      return getProviderLogo(providerName)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

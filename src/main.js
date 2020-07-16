@@ -7,13 +7,13 @@ import store from './store';
 import GoogleAnalytics from './analytics/GoogleAnalytics';
 
 function createApp(router, __INITIAL_STATE__) {
-  Vue.config.productionTip = false;
+  Vue.config.productionTip = false
 
-  const analytics = GoogleAnalytics();
-  analytics.anonymizeIpAddress();
-  analytics.setTransportBeacon();
+  const analytics = GoogleAnalytics()
+  analytics.anonymizeIpAddress()
+  analytics.setTransportBeacon()
 
-  const appStore = store(analytics, router);
+  const appStore = store(analytics, router)
 
   // prime the store with server-initialized state.
   // the state is determined during SSR and inlined in the page markup.
@@ -28,13 +28,13 @@ function createApp(router, __INITIAL_STATE__) {
       isFilterApplied,
       imageProviders,
       ...initialState
-    } = __INITIAL_STATE__;
-    initialState.query = appStore.state.query;
-    initialState.isFilterVisible = appStore.state.isFilterVisible;
-    initialState.isFilterApplied = appStore.state.isFilterApplied;
-    initialState.filters = appStore.state.filters;
-    initialState.imageProviders = appStore.state.imageProviders;
-    appStore.replaceState(initialState);
+    } = __INITIAL_STATE__
+    initialState.query = appStore.state.query
+    initialState.isFilterVisible = appStore.state.isFilterVisible
+    initialState.isFilterApplied = appStore.state.isFilterApplied
+    initialState.filters = appStore.state.filters
+    initialState.imageProviders = appStore.state.imageProviders
+    appStore.replaceState(initialState)
   }
 
   const app = new Vue({
@@ -45,8 +45,7 @@ function createApp(router, __INITIAL_STATE__) {
     render: h => h(App),
   });
 
-  return { app, store: appStore, router };
+  return { app, store: appStore, router }
 }
 
-
-export default createApp;
+export default createApp

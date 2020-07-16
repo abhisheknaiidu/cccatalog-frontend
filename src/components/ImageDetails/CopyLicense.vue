@@ -48,48 +48,72 @@
             {{ fullLicenseName.toUpperCase() }}
             </a>
           </span>
+          is licensed under
+          <a
+            class="photo_license"
+            :href="licenseURL"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ fullLicenseName.toUpperCase() }}
+          </a>
+        </span>
 
-          <copy-button id="copy-attribution-btn"
-                       el="#attribution"
-                       @copied="onCopyAttribution" />
-        </div>
-        <div :class="tabClass(1, 'tabs-panel')">
-          <textarea id="attribution-html"
-                    class="textarea monospace is-paddingless"
-                    :value="attributionHtml"
-                    cols="30" rows="4"
-                    readonly="readonly">
-          </textarea>
-          <copy-button id="copy-attribution-btn"
-                       el="#attribution-html"
-                       @copied="onEmbedAttribution" />
-        </div>
-        <div :class="tabClass(2, 'tabs-panel')">
-          <p id="attribution-text" class="photo_usage-attribution is-block" ref="photoAttribution">
-            {{ imageTitle }}
-            <span v-if="image.creator">
-              by {{ image.creator }}
-            </span>
-            is licensed under
-            {{ fullLicenseName.toUpperCase() }}.
-            To view a copy of this license, visit
-            <template v-if="licenseURL">
-              {{ licenseURL.substring(0, licenseURL.indexOf('?')) }}
-            </template>
-          </p>
+        <copy-button
+          id="copy-attribution-btn"
+          el="#attribution"
+          @copied="onCopyAttribution"
+        />
+      </div>
+      <div :class="tabClass(1, 'tabs-panel')">
+        <textarea
+          id="attribution-html"
+          class="textarea monospace is-paddingless"
+          :value="attributionHtml"
+          cols="30"
+          rows="4"
+          readonly="readonly"
+        >
+        </textarea>
+        <copy-button
+          id="copy-attribution-btn"
+          el="#attribution-html"
+          @copied="onEmbedAttribution"
+        />
+      </div>
+      <div :class="tabClass(2, 'tabs-panel')">
+        <p
+          id="attribution-text"
+          class="photo_usage-attribution is-block"
+          ref="photoAttribution"
+        >
+          {{ imageTitle }}
+          <span v-if="image.creator"> by {{ image.creator }} </span>
+          is licensed under
+          {{ fullLicenseName.toUpperCase() }}. To view a copy of this license,
+          visit
+          <template v-if="licenseURL">
+            {{ licenseURL.substring(0, licenseURL.indexOf('?')) }}
+          </template>
+        </p>
 
-          <copy-button id="copy-attribution-btn"
-                       el="#attribution-text"
-                       @copied="onCopyAttribution" />
-        </div>
-      </section>
+        <copy-button
+          id="copy-attribution-btn"
+          el="#attribution-text"
+          @copied="onCopyAttribution"
+        />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import CopyButton from '@/components/CopyButton';
-import { COPY_ATTRIBUTION, EMBED_ATTRIBUTION } from '@/store/action-types';
-import { SEND_DETAIL_PAGE_EVENT, DETAIL_PAGE_EVENTS } from '@/store/usage-data-analytics-types';
+import CopyButton from '@/components/CopyButton'
+import { COPY_ATTRIBUTION, EMBED_ATTRIBUTION } from '@/store/action-types'
+import {
+  SEND_DETAIL_PAGE_EVENT,
+  DETAIL_PAGE_EVENTS,
+} from '@/store/usage-data-analytics-types'
 
 export default {
   name: 'copy-license',
@@ -100,12 +124,12 @@ export default {
   data() {
     return {
       activeTab: 0,
-    };
+    }
   },
   computed: {
     imageTitle() {
-      const title = this.$props.image.title;
-      return title !== 'Image' ? `"${title}"` : 'Image';
+      const title = this.$props.image.title
+      return title !== 'Image' ? `"${title}"` : 'Image'
     },
   },
   methods: {
@@ -113,48 +137,37 @@ export default {
       return {
         [tabClass]: true,
         'is-active': tabIdx === this.activeTab,
-      };
+      }
     },
     setActiveTab(tabIdx) {
-      this.activeTab = tabIdx;
+      this.activeTab = tabIdx
     },
     sendDetailPageEvent(eventType) {
       this.$store.dispatch(SEND_DETAIL_PAGE_EVENT, {
         eventType,
         resultUuid: this.$props.image.id,
-      });
+      })
     },
     onCopyAttribution(e) {
       this.$store.dispatch(COPY_ATTRIBUTION, {
         content: e.content,
-      });
+      })
 
-      this.sendDetailPageEvent(DETAIL_PAGE_EVENTS.ATTRIBUTION_CLICKED);
+      this.sendDetailPageEvent(DETAIL_PAGE_EVENTS.ATTRIBUTION_CLICKED)
     },
     onEmbedAttribution() {
-      this.$store.dispatch(EMBED_ATTRIBUTION);
+      this.$store.dispatch(EMBED_ATTRIBUTION)
 
-      this.sendDetailPageEvent(DETAIL_PAGE_EVENTS.ATTRIBUTION_CLICKED);
+      this.sendDetailPageEvent(DETAIL_PAGE_EVENTS.ATTRIBUTION_CLICKED)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "bulma/sass/utilities/_all.sass";
-
-$width: 35rem;
-
-.copy-license {
-  width: $width;
-
-  @include mobile{
-    width: auto;
-  }
-}
+@import 'bulma/sass/utilities/_all.sass';
 
 textarea {
-  width: $width;
   border: none;
   resize: none;
 }
@@ -165,6 +178,4 @@ textarea {
 .tabs {
   margin-bottom: 0;
 }
-
-
 </style>

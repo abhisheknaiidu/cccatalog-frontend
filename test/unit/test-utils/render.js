@@ -17,11 +17,11 @@ const i18n = new VueI18n({
 
 const render = (Component, options = { localVue, i18n }) => {
   if (!options.store) {
-    const store = new Vuex.Store(sampleStore);
-    options.store = store;
+    const store = new Vuex.Store(sampleStore)
+    options.store = store
   }
 
-  return shallowMount(Component, options);
-};
+  return shallowMount(Component, options)
+}
 
-export default render;
+export default render

@@ -157,9 +157,9 @@
 </template>
 
 <script>
-import HeaderSection from '@/components/HeaderSection';
-import FooterSection from '@/components/FooterSection';
-import ServerPrefetchProvidersMixin from '@/pages/mixins/ServerPrefetchProvidersMixin';
+import HeaderSection from '@/components/HeaderSection'
+import FooterSection from '@/components/FooterSection'
+import ServerPrefetchProvidersMixin from '@/pages/mixins/ServerPrefetchProvidersMixin'
 
 const SearchHelpPage = {
   name: 'search-help-page',
@@ -170,17 +170,17 @@ const SearchHelpPage = {
   },
   computed: {
     imageProviders() {
-      return this.$store.state.imageProviders;
+      return this.$store.state.imageProviders
     },
   },
   methods: {
     providerSearchLink(providerCode) {
-      return `https://search.creativecommons.org/search?q=provider%3A%20"${providerCode}"`;
+      return `https://search.creativecommons.org/search?q=provider%3A%20"${providerCode}"`
     },
   },
-};
+}
 
-export default SearchHelpPage;
+export default SearchHelpPage
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

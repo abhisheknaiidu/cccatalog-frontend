@@ -9,7 +9,10 @@
 </template>
 
 <script>
-import { SEND_DETAIL_PAGE_EVENT, DETAIL_PAGE_EVENTS } from '@/store/usage-data-analytics-types';
+import {
+  SEND_DETAIL_PAGE_EVENT,
+  DETAIL_PAGE_EVENTS,
+} from '@/store/usage-data-analytics-types'
 
 export default {
   name: 'reuse-survey',
@@ -20,21 +23,21 @@ export default {
   }),
   computed: {
     formLink() {
-      const location = this.location;
-      return `https://docs.google.com/forms/d/e/1FAIpQLSeSApxNMup8Ujt-8Vjv53ngltzhJeaHspMykHCD8VKQ39yXAA/viewform?usp=pp_url&entry.1690035721=${location}`;
+      const location = this.location
+      return `https://docs.google.com/forms/d/e/1FAIpQLSeSApxNMup8Ujt-8Vjv53ngltzhJeaHspMykHCD8VKQ39yXAA/viewform?usp=pp_url&entry.1690035721=${location}`
     },
   },
   mounted() {
     // for SSR, sets the value with window.location, which is only available on client
-    this.location = window.location.href;
+    this.location = window.location.href
   },
   methods: {
     onReuseSurveyClick() {
       this.$store.dispatch(SEND_DETAIL_PAGE_EVENT, {
         eventType: DETAIL_PAGE_EVENTS.REUSE_SURVEY,
         resultUuid: this.$props.image.id,
-      });
+      })
     },
   },
-};
+}
 </script>

@@ -4,11 +4,15 @@
       {{ $t('browse-page.license-description.title') }} {{ license.toUpperCase() }}
     </h5>
     <license-explanations :license="license" />
+    <p class="caption is-pulled-right margin-small">
+      Read more about the license
+      <a target="_blank" :href="`${getLicenseDeedLink(license)}`">here</a>
+    </p>
   </div>
 </template>
 
 <script>
-import LicenseExplanations from '@/components/LicenseExplanations';
+import LicenseExplanations from '@/components/LicenseExplanations'
 
 export default {
   name: 'license-explanation-tooltip',
@@ -16,11 +20,16 @@ export default {
   components: {
     LicenseExplanations,
   },
-};
+  methods: {
+    getLicenseDeedLink(licenseTerm) {
+      return `https://creativecommons.org/licenses/${licenseTerm}/4.0/?ref=ccsearch&atype=rich`
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-@import "bulma/sass/utilities/_all.sass";
+@import 'bulma/sass/utilities/_all.sass';
 
 // from http://www.cssarrowplease.com/
 .license-explanation-tooltip {
@@ -49,7 +58,7 @@ export default {
     left: 10%;
   }
   border: solid transparent;
-  content: " ";
+  content: ' ';
   height: 0;
   width: 0;
   position: absolute;

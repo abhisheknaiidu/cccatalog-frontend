@@ -86,18 +86,20 @@ export default {
   data: () => ({ form: { searchTerm: '' } }),
   methods: {
     onSubmit() {
-      this.$store.commit(SET_QUERY, { query: { q: this.form.searchTerm }, shouldNavigate: true });
+      this.$store.commit(SET_QUERY, {
+        query: { q: this.form.searchTerm },
+        shouldNavigate: true,
+      })
     },
   },
-};
+}
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "node_modules/bulma/sass/utilities/initial-variables";
-@import "node_modules/bulma/sass/utilities/derived-variables";
-@import "node_modules/bulma/sass/utilities/mixins";
+@import 'node_modules/bulma/sass/utilities/initial-variables';
+@import 'node_modules/bulma/sass/utilities/derived-variables';
+@import 'node_modules/bulma/sass/utilities/mixins';
 
 $hero-height: 85vh;
 
@@ -193,5 +195,4 @@ $hero-height: 85vh;
     max-width: 1400px;
   }
 }
-
 </style>

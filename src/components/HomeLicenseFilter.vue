@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import { TOGGLE_FILTER } from '@/store/action-types';
+import { TOGGLE_FILTER } from '@/store/action-types'
 
 export default {
   name: 'license-filter',
   computed: {
     licenseTypes() {
-      return this.$store.state.filters.licenseTypes;
+      return this.$store.state.filters.licenseTypes
     },
   },
   methods: {
@@ -32,10 +32,10 @@ export default {
         code,
         filterType: 'licenseTypes',
         shouldNavigate: false,
-      });
+      })
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
